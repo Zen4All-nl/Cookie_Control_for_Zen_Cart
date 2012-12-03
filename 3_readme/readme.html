@@ -112,12 +112,15 @@
 <ol>
   <li>includes/templates/YOUR_TEMPLATE/templates/tpl_cookie_control.php</li>
   <li>includes/templates/YOUR_TEMPLATE/jscript/jscript_cookieControl-5.1.min.php</li>
+  <li>YOUR_ADMIN/includes//autoloaders/config.cookie_control.php</li>
   <li>YOUR_ADMIN/includes/init_includes/init_cookie_control_config.php</li>
 </ol>
 <p>Add the following files from the "1_install_files" folder:</p>
 <ol>
   <li>YOUR_ADMIN/includes/installers/cookie_control/1_1.php</li>
   <li>YOUR_ADMIN/includes/installers/cookie_control/1_2.php</li>
+  <li>YOUR_ADMIN/includes/installers/cookie_control/1_3.php</li>
+  <li>includes/templates/YOUR_TEMPLATE/stylesheet_cookie_control.css</li>
 
 </ol>
 </fieldset>
@@ -132,11 +135,14 @@
   <li>includes/templates/YOUR_TEMPLATE/templates/tpl_cookie_control.php</li>
   <li>includes/templates/YOUR_TEMPLATE/jscript/jscript_cookieControl-5.1.min.php</li>
   <li>YOUR_ADMIN/includes/init_includes/init_cookie_control_config.php</li>
+  <li>YOUR_ADMIN/includes/init_includes/init_cookie_control_config.php</li>
 </ol>
 <p>Add the following files from the "1_install_files" folder:</p>
 <ol>
   <li>YOUR_ADMIN/includes/installers/cookie_control/1_1.php</li>
   <li>YOUR_ADMIN/includes/installers/cookie_control/1_2.php</li>
+  <li>YOUR_ADMIN/includes/installers/cookie_control/1_3.php</li>
+  <li>includes/templates/YOUR_TEMPLATE/stylesheet_cookie_control.css</li>
   <li>includes/languages/YOUR_LANGUAGE/extra_definitions/YOUR_TEMPLATE/cookie_control.php</li>
 </ol>
 </fieldset>
@@ -153,6 +159,7 @@
       <li>YOUR_ADMIN/includes/init_includes/init_cookie_control_config.php</li>
       <li>YOUR_ADMIN/includes/installers/cookie_control/ (complete folder)</li>
       <li>YOUR_ADMIN/includes/languages/YOUR_LANGUAGE/extra_definitions/cookie_control.php</li>
+      <li>includes/templates/YOUR_TEMPLATE/stylesheet_cookie_control.css</li>
       <li>includes/templates/YOUR_TEMPLATE/jscript/jscript_cookieControl-5.1.min.php</li>
       <li>includes/templates/YOUR_TEMPLATE/templates/tpl_cookie_control.php</li>
       <li>includes/languages/YOUR_LANGUAGE/extra_definitions/YOUR_TEMPLATE/cookie_control.php</li>
@@ -285,6 +292,8 @@ Analytics, opting users in or out depending on their preference.</td>
     <td colspan="6">If you have multiple sub-domains, you can choose whether Cookie Control opt-ins apply across all sub-domains or just a single domain.<br /><br />E.g. if your main site is at <b>www.mysite.com</b> and your blog is at <b>blog.mysite.com</b>, you'd probably want a single opt-in to apply across both sites. If you select "No", users will have to give there consent once on each site.</td>
   </tr>
 </table>
+  <li>You van edit the suplied css file to change it to your likings<br>
+    If to make the file smaller remove unused css, since all is there for diamond, triangle, left and right display of the module</li>
   <li>That's, all enjoy</li>
 </ol>
 <p>You can see a working example of this on <a href="http://www.zen4all.nl" target="_blank" title="Zen4All">Zen4All</a></p>
@@ -322,7 +331,9 @@ Analytics, opting users in or out depending on their preference.</td>
 <fieldset>
   <legend>Cookie Control v1.3 Change-log</legend>
   <ul>
-    <li></li>
+    <li>Removed the css from jscript_cookieControl-5.1.min.php, and put it in its own css file for easier customizing</li>
+    <li>In jscript_cookieControl-5.1.min.php I changed some code, so the jquery from google will be called using https when applicable</li>
+    <li>Removed a typo from YOUR_ADMIN/includes/autoloaders/config.cookie_control.php</li>
     <li>Updated Readme</li>
   </ul>
 </fieldset>
