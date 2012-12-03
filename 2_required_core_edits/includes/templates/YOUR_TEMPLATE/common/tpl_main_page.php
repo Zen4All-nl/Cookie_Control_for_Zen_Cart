@@ -63,7 +63,7 @@
 
 <div id="mainWrapper">
 <?php
- /**overgeslagen
+ /**
   * prepares and displays header output
   *
   */
@@ -110,9 +110,10 @@ if (!isset($flag_disable_left) || !$flag_disable_left) {
   }
 ?>
 
-<!-- bof upload alerts -->
+<!-- bof messagestack alerts -->
 <?php if ($messageStack->size('upload') > 0) echo $messageStack->output('upload'); ?>
-<!-- eof upload alerts -->
+<?php if ($messageStack->size('main') > 0) echo $messageStack->output('main'); ?>
+<!-- eof messagestack alerts -->
 
 <?php
  /**
