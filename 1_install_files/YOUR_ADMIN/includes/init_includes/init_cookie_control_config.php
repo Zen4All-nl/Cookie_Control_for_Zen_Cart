@@ -3,10 +3,10 @@
     die('Illegal Access');
   }
   $zc150 = (PROJECT_VERSION_MAJOR > 1 || (PROJECT_VERSION_MAJOR == 1 && substr(PROJECT_VERSION_MINOR, 0, 3) >= 5));
-    // add upgrade script
+  // add upgrade script
   if (defined('COOKIE_CONTROL_MODULE_VERSION')) {
     $cc_version = COOKIE_CONTROL_MODULE_VERSION;
-    while ($cc_version != '1.2') {
+    while ($cc_version != '1.3') {
       switch($cc_version) {
         case '1.0':
           // perform upgrade
@@ -24,8 +24,16 @@
             $cc_version = '1.2';
           }
           break;
+        case '1.2':
+          // perform upgrade
+          if (file_exists(DIR_WS_INCLUDES . 'installers/cookie_control/1_3.php')) {
+            include_once(DIR_WS_INCLUDES . 'installers/cookie_control/1_3.php');
+            $messageStack->add('Updated Cookie Control to v1.3', 'success');
+            $cc_version = '1.3';
+          }
+          break;
         default:
-          $cc_version = '1.2';
+          $cc_version = '1.3';
           // break all the loops
           break 2;      
       }
@@ -40,7 +48,7 @@
     }
   }
 
-  if ($zc150) { // continue Zen Cart 1.5.0
+  if ($zc150) { // continue Zen Cart 1.5.x
     // add configuration menu
     if (!zen_page_key_exists('configCookieControl')) {
       $configuration = $db->Execute("SELECT configuration_group_id FROM " . TABLE_CONFIGURATION . " WHERE configuration_key = 'COOKIE_CONTROL_MODULE_VERSION' LIMIT 1;");
