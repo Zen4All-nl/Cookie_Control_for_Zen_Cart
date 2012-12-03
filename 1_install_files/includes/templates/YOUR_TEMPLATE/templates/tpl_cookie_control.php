@@ -19,9 +19,9 @@ if ($request_type == 'NONSSL') { ?>
       protectedCookies: [<?php echo COOKIE_CONTROL_PROTECTEDCOOKIES;?>], //list the cookies you do not want deleted ['analytics', 'twitter']
       consentModel:'<?php echo COOKIE_CONTROL_CONSENTMODEL;?>', // information_only , implicit , explicit
       subdomains:<?php echo COOKIE_CONTROL_SUBDOMAINS;?>, // true , false
-      onAccept:function(){ccAddAnalytics()},
+      onAccept:function(){ccAddAnalytics();},
       onReady:function(){},
-      onCookiesAllowed:function(){ccAddAnalytics()},
+      onCookiesAllowed:function(){ccAddAnalytics();},
       onCookiesNotAllowed:function(){},
       countries:'<?php echo COOKIE_CONTROL_COUNTRIES;?>' // Or supply a list ['United Kingdom', 'Greece']
       });
