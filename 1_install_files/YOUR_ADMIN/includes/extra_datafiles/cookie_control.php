@@ -1,2 +1,2 @@
 <?php
-  define('BOX_CONFIGURATION_COOKIECONTROL', 'Cookie control Configuration'); 
+  define('BOX_CONFIGURATION_COOKIECONTROL', 'Cookie Control Configuration'); 

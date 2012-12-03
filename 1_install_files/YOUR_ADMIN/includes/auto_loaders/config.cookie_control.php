@@ -1,5 +1,5 @@
 <?php
-// Google Mapinator
+// Cookie Control
 if (!defined('IS_ADMIN_FLAG')) {
   die('Illegal Access');
 } 
