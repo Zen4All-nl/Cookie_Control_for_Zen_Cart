@@ -1,9 +1,13 @@
 <?php
 if ($request_type == 'NONSSL') { ?>
 <script src="http://www.geoplugin.net/javascript.gp" type="text/javascript"></script>
+<?php } else { ?>
+<script src="https://ssl.geoplugin.net/javascript.gp" type="text/javascript"></script>
+<?php } ?>
+
 <script type="text/javascript">//<![CDATA[
   cookieControl({
-      introText:'<p><?php echo COOKIE_CONTROL_INTROTEXT;?></p>',
+      introText:'<?php echo COOKIE_CONTROL_INTROTEXT;?>',
       fullText:'<p><?php echo COOKIE_CONTROL_FULLTEXT;?> <a href="<?php echo HTTP_SERVER . DIR_WS_CATALOG;?>index.php?main_page=privacy">Privacy Policy</a>.</p>',
       cookieOnText:'<?php echo COOKIE_CONTROL_COOKIES_ON;?>',
       cookieOffText:'<?php echo COOKIE_CONTROL_COOKIES_OFF;?>',
@@ -29,5 +33,4 @@ if ($request_type == 'NONSSL') { ?>
         });
       }
    //]]>
-</script>  
-<?php } ?>
+</script>

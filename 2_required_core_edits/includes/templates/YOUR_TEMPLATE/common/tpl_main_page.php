@@ -63,7 +63,7 @@
 
 <div id="mainWrapper">
 <?php
- /**
+ /**overgeslagen
   * prepares and displays header output
   *
   */
@@ -185,7 +185,11 @@ if (!isset($flag_disable_right) || !$flag_disable_right) {
   }
 ?>
 <!--eof- banner #6 display -->
+
 <!--BOF cookie control script-->
+<?php if (COOKIE_CONTROL_STATUS == 'true'){?>
 <?php require($template->get_template_dir('tpl_cookie_control.php',DIR_WS_TEMPLATE, $current_page_base,'templates'). '/tpl_cookie_control.php');?>
+<?php } ?>
 <!--EOF cookie control script-->
+
 </body>

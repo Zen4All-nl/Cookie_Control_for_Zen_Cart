@@ -6,10 +6,18 @@
     // add upgrade script
   if (defined('COOKIE_CONTROL_MODULE_VERSION')) {
     $cc_version = COOKIE_CONTROL_MODULE_VERSION;
-    while ($cc_version != '1.0') {
+    while ($cc_version != '1.1') {
       switch($cc_version) {
+        case '1.0':
+          // perform upgrade
+          if (file_exists(DIR_WS_INCLUDES . 'installers/cookie_control/1_1.php')) {
+            include_once(DIR_WS_INCLUDES . 'installers/cookie_control/1_1.php');
+            $messageStack->add('Updated Cookie Control to v1.1', 'success');
+            $cc_version = '1.1';
+          }
+          break;
         default:
-          $cc_version = '1.0';
+          $cc_version = '1.1';
           // break all the loops
           break 2;      
       }

@@ -7,14 +7,14 @@
 <meta http-equiv="content-language" content="en">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="This module add the ability show a minimap with a marker on your contact page.">
-<title>Cookie Permission 1.0 for Zen Cart v1.3.x and 1.5.0</title>
+<title>Cookie Permission 1.1 for Zen Cart v1.3.x and 1.5.0</title>
 <link rel="stylesheet" type="text/css" href="includes/css/stylesheet.css">
 <script type="text/javascript" src="includes/jscript/jscript_tabs.js"></script>
 </head>
 
 <body>
 <div id="wrapper">
-<h2>Cookie Control version 1.0</h2>
+<h2>Cookie Control version 1.1</h2>
 <div id="slidetabsmenu" style="display: none;">
 <ul>
   <li> <a onClick="expandcontent('sc1', this)" href="javascript:void(0)"><span>Purpose &amp; Aim</span></a></li>
@@ -50,7 +50,7 @@
 <img src="images/allow_cookies.jpg" alt="Allow cookies" width="295" height="225" />
 <img src="images/no_cookies.jpg" alt="No cookies" width="295" height="260" />
 <img src="images/dark_diamond.jpg" alt="Dark skin, Diamond" width="295" height="225" /></p>
-<p>The support thread can be found <a href="http://www.zen-cart.com/forum/showthread.php?t=&amp;page=" target="_blank">here</a>.</p>
+<p>The support thread can be found <a href="http://www.zen-cart.com/showthread.php?199502-Cookie-Control-Support-Thread&p=1146410#post1146410" target="_blank">here</a>.</p>
 
 <p><strong>!!READ EVERYTHING!!</strong></p>
 
@@ -71,17 +71,14 @@
 <h4>!!!!!BACKUP YOUR FILES AND DATABASE BEFORE YOU BEGIN!!!!!</h4>
 <p>BEFORE INSTALLING, you are strongly encouraged to READ ALL OF THE TABS in this readme file. Then follow the installation or upgrade instructions, as appropriate.  </p>
 <p><strong>BEFORE YOU POST A QUESTION ON THE FORUM</strong> - read through this readme again as needed</p>
-<p>There are two folders in the fileset</p>
+<p>There are three folders in the fileset</p>
 
 <ul>
   <li>1_install_files</li>
   <li>2_core_edits</li>
-  <li>2_optional_files</li>
+  <li>3_optional_files</li>
 </ul>
-<!--<fieldset>
-<legend>Requirements</legend>
-<p></p>
-</fieldset>-->
+
 <fieldset>
 <legend>New Installation Instructions</legend>
 <ol>
@@ -94,33 +91,39 @@
   <li>Rename all of the "YOUR_TEMPLATE" folders to match the name of your template folder.
     <ul>
       <li>1_install_files\includes\templates\YOUR_TEMPLATE\</li>
-      <li>2_required_core_edits\includes\languages\YOUR_TEMPLATE\</li>
+      <li>2_required_core_edits\includes\templates\YOUR_TEMPLATE\</li>
     </ul></li>
   <li>Upload the files from "1_install_files" to your store. (DO NOT upload the "1_install_files" folder, just the CONTENTS of this folder - <br /><small>copy ALL of the add-on files to your store!! Most issues are caused by store owners who decide to NOT load ALL of the module files</small>)</li>
   <li>Upload the files from "2_required_core_edits" to your store. (DO NOT upload the "2_required_core_edits" folder, just the CONTENTS of this folder - <small>copy ALL of the add-on files to your store!! Most issues are caused by store owners who decide to NOT load ALL of the module files</small>)
     <ul>
-      <li>If any of the files in the "2_required_core_edits" folder have been modified by other module installs, you will need to use a file merging program like Beyond Compare or Winmerge to incorporate the Cookie Control changes</li>
+      <li>If the file in the "2_required_core_edits" folder has been modified by other module installs, you will need to use a file merging program like Beyond Compare or WinMerge to incorporate the Cookie Control changes</li>
     </ul>
   </li>
-  <li>Optional: Check if you ar running at least jQuery 1.4.4 on your server. If so, you may proceed to step 8. If not, copy the contents of the 3_optional_files folder to the includes/templates/YOUR_TEMPLATE/jscript/ folder on your server</li>
+  <li>Optional: Check if you are running at least jQuery 1.4.4 on your server. If so, you may proceed to step 8. If not, copy the contents of the 3_optional_files folder to your server</li>
   <li>Once the files are uploaded, click ANY link in your store's admin, and  the auto-installer will be triggered. If you have followed the install  instructions, you will see the installation confirmation message.</li>
+  <li>Remove your Google Analytics code from the cart, Cookie Control will take Control.</li>
   <li>Now you are ready to start configuring Cookie Control</li>
+  <li>For other cookies to ve controlled by Cookie Control add function to tpl_cookie_control, by 'copying' the Analytics function. For detailed help see <a href="http://www.civicuk.com/cookie-law">CIVIC</a> website.</li>
 </ol>
 </fieldset>
 <hr />
 <fieldset>
 <legend>Upgrade Instructions</legend>
-<p>This is the first version, so no upgrade available</p>
-<!--<ol>
-  <li>BACK UP your database &amp; store.</li>
-  <li>Unzip the Google mapinator package to your local hard drive, retaining the folder structure.</li>
-  <li>Rename the "YOUR_ADMIN_FOLDER" folder in the "1_Install_Files"
-    <ul>
-      <li>1_Install_Files/YOUR_ADMIN/</li>
-    </ul></li>
-  <li>Upload the files from "1_Install_Files" to your store. (DO NOT upload the "1_Install_Files" folder, just the CONTENTS of this folder - <br /><small>copy ALL of the add-on files to your store!! Most issues are caused by store owners who decide to NOT load ALL of the module files</small>)</li>
-  <li>Run the upgade_from_013_to_1.sql from the "Sql files" folder</li>
-</ol>-->
+<p>Replace following file by your back-up or remove the Cookie-Control text block at the bottom:</p>
+<ol>
+  <li>includes/languages/YOUR_LANGUAGE/YOUR_LANGUAGE.php (for all of your installed languages)</li>
+</ol>
+<p>Replace following file by new file:</p>
+<ol>
+  <li>includes/templates/YOUR_TEMPLATE/templates/tpl_cookie_control.php</li>
+  <li>YOUR_ADMIN/includes/init_includes/init_cookie_control_config.php</li>
+  <li>includes/templates/YOUR_TEMPLATEcommon/tpl_main_page.php (or replace the cookie contole code block)</li>
+</ol>
+<p>Add following files from "1_install_files" folder:</p>
+<ol>
+  <li>YOUR_ADMIN/includes/installers/cookie_control/1_1.php</li>
+  <li>includes/languages/YOUR_LANGUAGE/extra_definitions/YOURTEMPLATE/cookie_control.php</li>
+</ol>
 </fieldset>
 <hr />
 <fieldset>
@@ -137,6 +140,8 @@
       <li>YOUR_ADMIN/includes/languages/YOUR_LANGUAGE/extra_definitions/cookie_control.php</li>
       <li>includes/templates/YOUR_TEMPLATE/jscript/jscript_cookieControl-5.1.min.php</li>
       <li>includes/templates/YOUR_TEMPLATE/templates/tpl_cookie_control.php</li>
+      <li>includes/languages/dutch/extra_definitions/cookie_control.php</li>
+      <li>includes/languages/english/extra_definitions/cookie_control.php</li>
     </ul>
   </li>
   <li>Remove the changes you made to includes\templates\YOUR_TEMPLATE\common\tpl_main_page.php</li>
@@ -157,6 +162,12 @@
 <ol>
   <li>Go to Configuration => Cookie Control Configuration in the admin panel
 <table>
+  <tr>
+    <td colspan="6"><h3>Enable Cookie Control</h3></td>
+  </tr>
+  <tr>
+    <td colspan="6">Enable or disable Cookie Control (enabled by default)</td>
+  </tr>
   <tr>
     <td colspan="6"><h3>Choose your Consent Model</h3></td>
     </tr>
@@ -262,8 +273,6 @@ Analytics, opting users in or out depending on their preference.</td>
 </table>
   <li>That's, all enjoy</li>
 </ol>
-<p>You can see a working example of this on <a href="http://www.zen4all.nl" target="_blank" title="Zen4All">Zen4All</a></p>
-
 </div>
 </div>
 </div>
@@ -288,12 +297,23 @@ Analytics, opting users in or out depending on their preference.</td>
 <h3>Credits &amp; History</h3>
 <p>Cookie Control v1.0 created by:</p>
 <ul>
-<li>Desing75 (info@zen4all.nl / http://zen4all.nl)</li>
+<li>Desing75 (<a href="mailto:info@zen4all.nl">info@zen4all.nl</a> / <a href="http://zen4all.nl" target="_blank">Zen4All</a></li>
+</ul>
+<p>Cookie Control v1.1:</p>
+<ul>
+<li>GetZenned.nl (<a href="mailto:info@getzenned.nl">info@getzenned.nl</a> / <a href="http://getzenned.nl" target="_blank">GetZenned</a></li>
 </ul>
 <fieldset>
   <legend>Cookie Control v1.0 Changelog</legend>
   <ul>
     <li>Inital version</li>
+  </ul>
+  <legend>Cookie Control v1.1 Changelog</legend>
+  <ul>
+    <li>Now works under SSL as well</li>
+    <li>Reduced the number of core edits</li>
+    <li>Added enable / disable from admin</li>
+    <li>Updated Readme</li>
   </ul>
 </fieldset>
 <hr />
@@ -301,7 +321,7 @@ Analytics, opting users in or out depending on their preference.</td>
   <legend>Acknowledgments</legend>
   <ul>
     <li>The Cookie Control script has been developed by <a href="http://www.civicuk.com/cookie-law">CIVIC</a></li>
-    <li>Thanks to René Weishaupt (Eentje) http://getzenned.nl, who provided the idea for this module</li>
+    <li>Thanks to René Weishaupt (eentje) <a href="http://getzenned.nl" target="_blank">GetZenned</a>, who provided the idea for this module</li>
   </ul>
 </fieldset>
 </div>
@@ -340,11 +360,11 @@ Analytics, opting users in or out depending on their preference.</td>
 <div class="regularlist">
 
 <h3>Files</h3>
-<p>Cookie Control makes only one minor modification to core Zen Cart files in order to work correctly. If you've installed other mods in your store, you should use a program like Winmerge or Beyond Compare to merge in the required change for Cookie Control into your existing store files. If this is a fresh (vanilla) Zen Cart install, you can simply overwrite the default Zen Cart files.<br />
+<p>Cookie Control makes only one minor modification to core Zen Cart files in order to work correctly. If you've installed other mods in your store, you should use a program like WinMerge or Beyond Compare to merge in the required change for Cookie Control into your existing store files. If this is a fresh (vanilla) Zen Cart install, you can simply overwrite the default Zen Cart files.<br />
 <br />
 Here is the full list of core Zen Cart files that are affected by Cookie Control:</p>
 <ul>
-  <li>includes/languages/YOUR_TEMPLATE/YOUR_LANGUAGE.php</li>
+  <li>includes/languages/YOUR_TEMPLATE/YOUR_LANGUAGE.php (no merging necessary as of v1.1)</li>
   <li>includes/templates/YOUR_TEMPLATE/common/tpl_main_page.php</li>
 </ul>
 
@@ -372,7 +392,7 @@ Here is the full list of core Zen Cart files that are affected by Cookie Control
 <div class="regularlist">
 
 <h3>LICENSE</h3>
-<p><strong>Cookie Control</strong> is released under the General Public License (see LICENSE.txt)</p>
+<p><strong>Cookie Control</strong> is released under the General Public License V2 (see LICENSE.txt)</p>
 
 <p>This script is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.</p>
 <p>Always backup your shop and database before making changes.</p>
